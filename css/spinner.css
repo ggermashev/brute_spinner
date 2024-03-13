@@ -1,0 +1,26 @@
+:root {
+    --spinner-empty-color: #f0f7fe;
+    --spinner-filled-color: #0037ff;
+}
+
+.spinner {
+    position: relative;
+}
+
+.spinner__circle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+
+    border-radius: 100%;
+    background-color: white;
+}
+
+.spinner__canvas {
+    position: absolute;
+
+    border-radius: 100%;
+    background-color: var(--spinner-empty-color);
+}
