@@ -37,11 +37,6 @@
     height: 32px;
 }
 
-.spinner-container .spinner {
-    width: 150px;
-    height: 150px;
-}
-
 .inputs-container {
     position: relative;
     height: 50%;
@@ -88,9 +83,15 @@ input[type=number] {
     border-radius: 32px;
     padding: 12px;
     border: 1px solid black;
+    -moz-appearance: textfield;
 }
 
 input[type=number]:focus {
     outline: none;
     border-color: var(--input-focus-color);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }

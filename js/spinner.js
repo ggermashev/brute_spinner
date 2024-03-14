@@ -20,6 +20,9 @@ window.addEventListener('load', () => {
             setSpinerVisibility(id, el.value)
         })
 
+        spinner.style.width = `${d}px`
+        spinner.style.height = `${d}px`
+
         const canvas = document.createElement("canvas")
         canvas.setAttribute("class", "spinner__canvas")
         canvas.setAttribute("height", d)
