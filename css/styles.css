@@ -1,3 +1,8 @@
+:root {
+    --padding-between-containers: 48px;
+    --input-focus-color: #0037ff
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -22,13 +27,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    padding-bottom: 48px;
+    padding-bottom: var(--padding-between-containers);
 }
 
 .spinner-container p {
     position: absolute;
     top: 0;
     left: 0;
+    height: 32px;
 }
 
 .spinner-container .spinner {
@@ -40,10 +46,11 @@
     position: relative;
     height: 50%;
     width: 100%;
-    padding: 64px;
 
     display: flex;
     flex-direction: row;
+    align-items: start;
+    padding-top: var(--padding-between-containers);
 }
 
 .inputs-container__left {
@@ -63,10 +70,27 @@
     align-items: start;
 }
 
-.toggle__bg {
-
+.inputs-container__right p {
+    height: 32px;
+    display: flex;
+    align-items: center;
 }
 
-.toggle__tumbler {
-    
+.toggle {
+    width: 52px;
+    height: 32px;
+    border-radius: 32px;
+}
+
+input[type=number] {
+    width: 52px;
+    height: 32px;
+    border-radius: 32px;
+    padding: 12px;
+    border: 1px solid black;
+}
+
+input[type=number]:focus {
+    outline: none;
+    border-color: var(--input-focus-color);
 }

@@ -4,9 +4,6 @@ window.addEventListener('load', () => {
     const toggles = document.querySelectorAll(`.${TOGGLE}`)
 
     toggles.forEach(toggle => {
-        const bgColor = toggle.getAttribute("bgColor")
-        const color = toggle.getAttribute("color")
-
         const bg = document.createElement("div")
         bg.setAttribute("class", `${TOGGLE}__bg`)
         
