@@ -16,6 +16,9 @@
     width: 100%;
     height: 100vh;
     padding: 16px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .spinner-container {
@@ -94,4 +97,33 @@ input[type=number]:focus {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+@media screen and (orientation:landscape) {
+    .spinner-page {
+        flex-direction: row;
+    }
+
+    .spinner-container {
+        height: 100%;
+        width: 50%;
+        padding-bottom: 0;
+        padding-right: var(--padding-between-containers);
+        align-items: end;
+        justify-content: center;
+    }
+
+    .inputs-container {
+        height: 100%;
+        width: 50%;
+        padding-top: 0;
+        padding-left: var(--padding-between-containers);
+    }
+
+    .inputs-container__right, .inputs-container__left {
+        height: 100%;
+        justify-content: center;
+        align-items: start;
+        width: auto;
+    }
 }
