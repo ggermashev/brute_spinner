@@ -85,21 +85,30 @@ function drawSpinner(id, percent) {
 }
 
 function rotateSpinner(id, isRotating) {
-    console.log(isRotating)
+    const spinner = document.getElementById(id)
+    const children = spinner.children
+    const canvas = children[children.length - 2]
+
+    const canvasClassname = canvas.getAttribute("class")
+    if (isRotating) {
+        canvas.setAttribute("class", canvasClassname + " spinner__canvas__rotating")
+    } else {
+        const lastClass = getLastClass(canvasClassname)
+        if (lastClass === "spinner__canvas__rotating") {
+            canvas.setAttribute("class", cutLastClass(canvasClassname))
+        }
+    }
 }
 
 function setSpinerVisibility(id, isHidden) {
+    const spinner = document.getElementById(id)
+    const spinnerClassName = spinner.getAttribute("class")
     if (!isHidden) {
-        const spinner = document.getElementById(id)
-        const spinnerClassName = spinner.getAttribute("class")
-        const lastClass = spinnerClassName.split(' ').at(-1)
-
+        const lastClass = getLastClass(spinnerClassName)
         if (lastClass === "spinner__hidden") {
-            spinner.setAttribute("class", spinnerClassName.split(' ').slice(0, -1).join(' '))
+            spinner.setAttribute("class", cutLastClass(spinnerClassName))
         }
     } else {
-        const spinner = document.getElementById(id)
-        const spinnerClassName = spinner.getAttribute("class")
         spinner.setAttribute("class", spinnerClassName + " spinner__hidden")
     }
 }
@@ -157,4 +166,12 @@ class SpinnerEventValueOutOfRangeError extends Error {
         super(`Passed value for event '${VALUE}' is out of range [${minVal}, ${maxVal}]. Passed: ${currentValue}\n`)
         this.name = "Spinner-Event-Value-Out-Of-Range-Error"
     }
+}
+
+function getLastClass(classname) {
+    return classname.split(' ').at(-1)
+}
+
+function cutLastClass(classname) {
+    return classname.split(' ').slice(0, -1).join(' ')
 }

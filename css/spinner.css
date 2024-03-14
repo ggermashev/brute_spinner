@@ -3,8 +3,25 @@
     --spinner-filled-color: #0037ff;
 }
 
+@keyframes rotation {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
 .spinner {
     position: relative;
+}
+
+.spinner__canvas__rotating {
+    animation: rotation 2s infinite linear;
+}
+
+.spinner__hidden {
+    display: none;
 }
 
 .spinner__circle {
@@ -23,12 +40,4 @@
 
     border-radius: 100%;
     background-color: var(--spinner-empty-color);
-}
-
-.spinner__canvas__rotating {
-
-}
-
-.spinner__hidden {
-    display: none;
 }
