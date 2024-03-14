@@ -27,10 +27,16 @@ window.addEventListener('load', () => {
                 tumbler.setAttribute("class", tumblerClassName + " toggle__tumbler__active")
             } else {
                 const bgClassName = bg.getAttribute("class")
-                bg.setAttribute("class", bgClassName.split(' ').slice(0, -1).join(' '))
-
+                let lastClass = bgClassName.split(' ')[-1]
+                if (lastClass === "toggle__bg__active") {
+                    bg.setAttribute("class", bgClassName.split(' ').slice(0, -1).join(' '))
+                }
+               
                 const tumblerClassName = tumbler.getAttribute("class")
-                tumbler.setAttribute("class",  tumblerClassName.split(' ').slice(0, -1).join(' '))
+                lastClass = tumblerClassName.split(' ').at(-1)
+                if (lastClass === "toggle__tumbler__active") {
+                    tumbler.setAttribute("class",  tumblerClassName.split(' ').slice(0, -1).join(' '))
+                }
             }
 
             const event = new Event("change")

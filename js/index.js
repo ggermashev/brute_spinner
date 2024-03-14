@@ -1,10 +1,15 @@
 window.addEventListener('load', () => {
+    const focuesInput = document.getElementById("focused-value-input")
+    focuesInput?.focus()
+
     const spinnerValues = document.querySelectorAll(".spinner-value")
     const spinnerAnimations = document.querySelectorAll(".spinner-animation")
     const spinnerVisibilities = document.querySelectorAll(".spinner-visibility")
 
     spinnerValues.forEach(input => {
         const spinnerId = input.getAttribute("spinner_id")
+        const value = parseFloat(input.value) || 0
+        sendSpinnerEnevt({ eventType: VALUE, spinnerId, value })
 
         input.addEventListener('change', (e) => {
             const value = parseFloat(e.target.value)

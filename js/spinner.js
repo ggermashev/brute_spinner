@@ -88,8 +88,20 @@ function rotateSpinner(id, isRotating) {
     console.log(isRotating)
 }
 
-function setSpinerVisibility(id, isVisible) {
-    console.log(isVisible)
+function setSpinerVisibility(id, isHidden) {
+    if (!isHidden) {
+        const spinner = document.getElementById(id)
+        const spinnerClassName = spinner.getAttribute("class")
+        const lastClass = spinnerClassName.split(' ').at(-1)
+
+        if (lastClass === "spinner__hidden") {
+            spinner.setAttribute("class", spinnerClassName.split(' ').slice(0, -1).join(' '))
+        }
+    } else {
+        const spinner = document.getElementById(id)
+        const spinnerClassName = spinner.getAttribute("class")
+        spinner.setAttribute("class", spinnerClassName + " spinner__hidden")
+    }
 }
 
 function sendSpinnerEnevt({eventType, spinnerId, value}) {

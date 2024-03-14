@@ -24,3 +24,11 @@
     border-radius: 100%;
     background-color: var(--spinner-empty-color);
 }
+
+.spinner__canvas__rotating {
+
+}
+
+.spinner__hidden {
+    display: none;
+}
