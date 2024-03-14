@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
                 tumbler.setAttribute("class", tumblerClassName + " toggle__tumbler__active")
             } else {
                 const bgClassName = bg.getAttribute("class")
-                let lastClass = bgClassName.split(' ')[-1]
+                let lastClass = bgClassName.split(' ').at(-1)
                 if (lastClass === "toggle__bg__active") {
                     bg.setAttribute("class", bgClassName.split(' ').slice(0, -1).join(' '))
                 }
