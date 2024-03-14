@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/spinner.css">
+    <link rel="stylesheet" href="../css/toggle.css">
     <link rel="stylesheet" href="../css/styles.css">
     <title>Example of my spinner component</title>
 </head>
@@ -11,15 +12,23 @@
     <div class="spinner-page">
         <div class="spinner-container">
             <p><strong>Progress</strong></p>
-            <div class="spinner" width="150" height="150" id="spinner1"></div>
+            <div class="spinner" d="150" id="spinner1"></div>
         </div>
         <div class="inputs-container">
-            <input type="number" class="spinner-value" spinner_id="spinner1"/> 
-            <input type="checkbox" class="spinner-animation" spinner_id="spinner1"/>
-            <input type="checkbox" class="spinner-visibility" spinner_id="spinner1"/>
+            <div class="inputs-container__left">
+                <input type="number" class="spinner-value" spinner_id="spinner1"/>
+                <div class="toggle spinner-animation" spinner_id="spinner1"></div>
+                <div class="toggle spinner-visibility" spinner_id="spinner1"></div>
+            </div>
+            <div class="inputs-container__right">
+                <p>Value</p> 
+                <p>Animate</p> 
+                <p>Hide</p> 
+            </div>
         </div>
     </div>
 </body>
 <script src="../js/spinner.js"></script>
+<script src="../js/toggle.js"></script>
 <script src="../js/index.js"></script>
 </html>

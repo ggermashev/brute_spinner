@@ -5,6 +5,7 @@
     font-family: Verdana, sans-serif;
 }
 
+
 .spinner-page {
     position: relative;
     width: 100%;
@@ -18,8 +19,10 @@
     width: 100%;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
+    padding-bottom: 48px;
 }
 
 .spinner-container p {
@@ -40,7 +43,30 @@
     padding: 64px;
 
     display: flex;
+    flex-direction: row;
+}
+
+.inputs-container__left {
+    width: 50%;
+    display: flex;
     flex-direction: column;
-    align-items: start;
     gap: 1em;
+    align-items: end;
+    padding-right: 1.5em;
+}
+
+.inputs-container__right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: start;
+}
+
+.toggle__bg {
+
+}
+
+.toggle__tumbler {
+    
 }

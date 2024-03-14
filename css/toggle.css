@@ -1,0 +1,36 @@
+:root {
+    --toggle-off-color: #e3effa;
+    --toggle-on-color: #0037ff;
+}
+
+.toggle {
+    position: relative;
+    width: 52px;
+    height: 2em;
+}
+
+.toggle__bg {
+    background-color: var(--toggle-off-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+}
+
+.toggle__tumbler {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: white;
+    height: calc(100% - 4px);
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+}
+
+.toggle__bg__active {
+    background-color: var(--toggle-on-color);
+}
+
+.toggle__tumbler__active {
+    left: auto;
+    right: 2px;
+}

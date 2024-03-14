@@ -12,19 +12,19 @@ window.addEventListener('load', () => {
         })
     })
 
-    spinnerAnimations.forEach(checkbox => {
-        const spinnerId = checkbox.getAttribute("spinner_id")
+    spinnerAnimations.forEach(toggle => {
+        const spinnerId = toggle.getAttribute("spinner_id")
 
-        checkbox.addEventListener('change', (e) => {
-            sendSpinnerEnevt({ eventType: ANIMATION, spinnerId, value: e.target.checked })
+        toggle.addEventListener('change', (e) => {
+            sendSpinnerEnevt({ eventType: ANIMATION, spinnerId, value: e.value })
         })
     })
 
-    spinnerVisibilities.forEach(checkbox => {
-        const spinnerId = checkbox.getAttribute("spinner_id")
+    spinnerVisibilities.forEach(toggle => {
+        const spinnerId = toggle.getAttribute("spinner_id")
 
-        checkbox.addEventListener('change', (e) => {
-            sendSpinnerEnevt({ eventType: VISIBILITY, spinnerId, value: e.target.checked })
+        toggle.addEventListener('change', (e) => {
+            sendSpinnerEnevt({ eventType: VISIBILITY, spinnerId, value: e.value })
         })
     })
 })

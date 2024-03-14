@@ -4,12 +4,11 @@ const ANIMATION = "animation"
 const VISIBILITY = "visibility"
 
 window.addEventListener('load', () => {
-    const spinners = document.querySelectorAll(".spinner")
+    const spinners = document.querySelectorAll(`.${SPINNER}`)
 
     spinners.forEach(spinner => {
         const id = spinner.getAttribute("id")
-        const height = spinner.getAttribute("height")
-        const width = spinner.getAttribute("width")
+        const d = spinner.getAttribute("d")
 
         spinner.addEventListener(`${SPINNER}-${VALUE}-${id}`, (el) => {
             drawSpinner(id, el.value)
@@ -23,8 +22,8 @@ window.addEventListener('load', () => {
 
         const canvas = document.createElement("canvas")
         canvas.setAttribute("class", "spinner__canvas")
-        canvas.setAttribute("height", height)
-        canvas.setAttribute("width", width)
+        canvas.setAttribute("height", d)
+        canvas.setAttribute("width", d)
         spinner.appendChild(canvas)
 
         const circle = document.createElement("div")
@@ -39,22 +38,21 @@ function drawSpinner(id, percent) {
     const canvas = children[children.length - 2]
     const context = canvas?.getContext('2d')
 
-    const h = canvas.getAttribute("height")
-    const w = canvas.getAttribute("width")
-    const r = Math.round(Math.min(h, w)) / 2
-    const centerX = Math.round(w/2)
-    const centerY = Math.round(h/2)
+    const d = canvas.getAttribute("height")
+    const r = Math.round(d / 2)
+    const centerX = r
+    const centerY = r
 
-    context.clearRect(0, 0, w, h)
+    context.clearRect(0, 0, d, d)
     const styles = window.getComputedStyle(document.body)
     const color = styles.getPropertyValue("--spinner-filled-color");
     context.fillStyle = color || "#336699"
 
     const angle = 2 * Math.PI * percent / 100
     const [minX, maxX] = getMinMaxX(angle)
-    for (let x = minX; x <= maxX; x+= 0.5) {
+    for (let x = minX; x <= maxX; x += 0.5) {
         const [minY, maxY] = getMinMaxY(x, angle)
-        for (let y = minY; y <= maxY; y+= 0.5) {
+        for (let y = minY; y <= maxY; y += 0.5) {
             context.fillRect(x, y, 1, 1)
         }
     }
